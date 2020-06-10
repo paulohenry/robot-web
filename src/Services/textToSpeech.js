@@ -3,7 +3,8 @@ const synthVoice = (text)=> {
  
   const utterance = new SpeechSynthesisUtterance();
   utterance.text = text;
-  synth.speak(utterance);
-}
+  synth.speak(utterance); 
+}   
+
 
 export default synthVoice
