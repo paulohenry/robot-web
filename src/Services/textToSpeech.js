@@ -1,10 +1,17 @@
-const synthVoice = (text)=> {
-  const synth = window.speechSynthesis;
- 
-  const utterance = new SpeechSynthesisUtterance();
-  utterance.text = text;
-  synth.speak(utterance); 
-}   
+export const synth =  window.speechSynthesis
+export const utterance = new window.SpeechSynthesisUtterance();
 
 
-export default synthVoice
+
+
+
+
+
+
+
+
+
+   
+
+
+

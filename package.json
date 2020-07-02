@@ -6,24 +6,31 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "artyom.js": "^1.0.6",
-    "audio-effects": "^1.2.4",
     "electron": "^9.0.3",
     "lottie-web": "^5.6.10",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
     "react-lottie": "^1.2.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-speech-recognition": "^2.0.4",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
-    "electronBuild": "",
-    "face": "react-scripts start",
+    "face": "set PORT=3002 && react-scripts start",
+    "start": "nf start -p 3002",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-start": "node src/index.js",
+    "react-start": "BROWSER=none react-scripts start",
+    "pack": "build --dir",
+    "dist": "npm run build && build",
+    "postinstall": "install-app-deps"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "electron-builder": "^22.7.0"
+    "electron-builder": "^22.7.0",
+    "sucrase": "^3.15.0"
   }
 }
