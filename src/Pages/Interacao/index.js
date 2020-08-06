@@ -1,39 +1,34 @@
-import React ,{useState,useEffect,createRef} from 'react';
 
+import React ,{useState,useEffect} from 'react';
+import {SofhiaPiscandoSprite} from '../../Animations/Sofhia'
 
 import { 
-   InteracaoStyles,
-   Button, 
-   AnimationComponent,
-   ContainerButton,
    DivCam,
    Camera
     } from './styles';
 
-import {FaCogs } from 'react-icons/fa'
+
 
 import recog from '../../Services/speechToText'
 import {synth,utterance} from '../../Services/textToSpeech'
 
-
-import lottie from '../../Config/Animations/animationConfig'
 
 import socketio from 'socket.io-client'
 const io = socketio.connect('http://localhost:3001')
 
 
 
+
 function Interacao() { 
   
-  //variaveis de animacao
-  const container  = createRef(null)
-
+   
+ 
   //variaveis de captura de image
   const [camState, setCamState]=useState(false)
   const [tagcamera, setTagcamera] = useState('reconhecer_imagem')  
   const [srcImage, setSrcImage] = useState(null)
-  const [recogState, setRecogState] = useState(false)
-  const [buttonLabel, setbuttonlabel]=useState('iniciar gravação')
+  // const [recogState, setRecogState] = useState(false)
+  // const [buttonLabel, setbuttonlabel]=useState('iniciar gravação')
   
   io.on('data',(data)=>{      
       setSrcImage(`data:image/jpeg;base64,${data}`)
@@ -44,7 +39,7 @@ function Interacao() {
       
      let transcricaoAtual = e.resultIndex
       let transcricao = e.results[transcricaoAtual][0].transcript
-       
+       console.log(transcricao)
         io.emit('message client',{
           autor:'usuário',
           fala:transcricao,
@@ -63,46 +58,26 @@ function Interacao() {
   
   } 
 
-const handleRecog = ()=>{
-  if(recogState===false){
-    recog.start()
-    setRecogState(true)
-    setbuttonlabel('parar gravação')
-  }else if(recogState===true){
-    recog.stop()
-    setRecogState(false)
-    setbuttonlabel('iniciar gravação')
-  } 
-}
 
-useEffect(()=>{
-    
-    dialogo()
-    lottie.animacao_piscando(container)
-   
+
+recog.addEventListener('end', recog.start)
+
+
+
+useEffect(()=>{   
+    recog.start() 
+    dialogo()   
 },[])
 
 return (
-   <>
-    <ContainerButton>
-    <Button>  
-      <a href='/dashboard'>
-        <FaCogs color='#44c2d4' size={100}/>       
-      </a>      
-    </Button>      
-  </ContainerButton>  
-    <InteracaoStyles >
-      <DivCam>        
-         {camState===true && <Camera  src={srcImage}></Camera>}             
-      </DivCam>
-      <AnimationComponent className="container" ref={container}></AnimationComponent> 
-     <Button onClick={()=>handleRecog()}>
-       {buttonLabel}
-     </Button>
-
-    </InteracaoStyles>
-   </>
-    
+    <> 
+          
+          {camState===true && <Camera  src={srcImage}></Camera>}             
+        
+      <a href='/dashboard'>         
+         <SofhiaPiscandoSprite/>
+      </a>    
+    </>   
 
   );
 }

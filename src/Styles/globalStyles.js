@@ -7,14 +7,20 @@ export default createGlobalStyle`
       outline:0;
       box-sizing: border-box;
   }
+ 
 
   html, body, #root{
-    background-color:#9F06C9;
+    background-color:#71ABDD;
     min-height:100%;
     -webkit-font-smoothing: antialiased !important;
+    overflow-y:hidden;
+    height:100vh;  
+    width: 100vw;
     display:flex;
     flex-direction:column;
-    overflow-y:hidden;
+    justify-content:center;
+    align-items:center;
   }
+
 
 `
