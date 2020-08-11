@@ -1,7 +1,7 @@
 
 import React ,{useState,useEffect} from 'react';
 import {SofhiaPiscandoSprite} from '../../Animations/Sofhia'
-
+import {Link}from 'react-router-dom'
 import { 
    DivCam,
    Camera
@@ -14,7 +14,7 @@ import {synth,utterance} from '../../Services/textToSpeech'
 
 
 import socketio from 'socket.io-client'
-const io = socketio.connect('http://localhost:3001')
+const io = socketio.connect('http://localhost:3002')
 
 
 
@@ -74,9 +74,9 @@ return (
           
           {camState===true && <Camera  src={srcImage}></Camera>}             
         
-      <a href='/dashboard'>         
+      <Link to='/details'>         
          <SofhiaPiscandoSprite/>
-      </a>    
+      </Link>    
     </>   
 
   );

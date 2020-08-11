@@ -1,21 +1,33 @@
-import React,{useEffect} from 'react';
-import {  } from 'react-icons/fa'
-// import {
-//     backButton,
-//     Linha1,
-//     Linha2
-// }from './styles'
+import React,{useState,useEffect} from 'react'
+import './styles.css'
+import {Link} from 'react-router-dom'
 
-function Dashboard() {
+const internalIp = require('public-ip')
 
-useEffect(()=>{
-   
-},[])
+
+const Dashboard = ()=> {
+
+  const[ip,setIp]=useState('')
+  
+  const ipFun3 = async()=>{
+    const res = await internalIp.v4()
+    console.log(res)
+    }
+  
+  useEffect(()=>{
+    const ipDate = ipFun3()
+    
+  },[])
+
   return (
-    <>
-    </>
-  )
-      
+    <div className="container">
+      <Link to="/">
+        <button className="button-voltar">Voltar</button>
+      </Link>
+      <p className="ip-txt">digite este endereço no seu navegador</p>
+      <p className="ip-txt">http://{ip}:3002</p>  
+    </div>
+  )      
 }
 
 export default Dashboard;
