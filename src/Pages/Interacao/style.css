@@ -1,0 +1,130 @@
+
+.olho1{  
+  position:absolute;
+  left:8%;
+  top:30%;
+  border-radius: 50%;
+}
+.olho2{  
+  position:absolute;
+  left:54%;
+  top:30%;
+  border-radius: 46%;
+}
+.sofy{
+  position:relative; 
+  left:0;
+  top:0;
+  height:100vh;
+  width:80vw;
+  position:relative;  
+  
+}
+.poweroff{
+  position:absolute;
+  left:0;
+  top:0;
+  background-color:#71ABDD;
+  padding:2%;
+  border-radius: 6px;
+  box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.3);
+  border:none;
+  color:#FFF;
+  font-size:32px;
+  font-weight:bold;
+}
+.wifi{
+  z-index:1;
+  position:absolute;
+  left:45%;
+  top:0;
+  background-color:#71ABDD;
+  padding:2%;
+  border-radius: 6px;
+  box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.3);
+  border:none;
+  color:#FFF;
+  font-size:32px;
+  font-weight:bold;
+}
+.details{
+  position:absolute;
+  left:88.5%;
+  top:0;
+  background-color:#71ABDD;
+  padding:2%;
+  border-radius: 6px;
+  box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.3);
+  border:none;
+  color:#FFF;
+  font-size:32px;
+  font-weight:bold;
+}
+
+.poweroff:hover{
+  cursor: pointer;
+  background-color:#5c9ed8;
+}
+.wifi:hover{
+  cursor: pointer;
+  background-color:#5c9ed8;
+}
+.details:hover{
+  cursor: pointer;
+  background-color:#5c9ed8;
+}
+.online{
+  display:flex;
+  align-items: center;
+  z-index:1;
+  position:absolute;
+  top:93%;
+  left:2%;
+  height: 30px;
+  width:30px;
+  border-radius: 50%;
+  background-color:green;
+}
+.online p {
+  color:#FFF;
+  font-size:32px;
+  margin-left:30px;
+}
+/*------------------------------------------------------*/
+
+.offlineContainer{
+ position:relative;
+ left:0;
+ top:0;
+}
+.div-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+}
+.b-off{
+  position:absolute;
+  left:40%;
+  top:30%;
+  padding:3%;
+  background-color:#71ABDD; 
+  border-radius: 6px;
+  box-shadow: 0px 0px 6px 6px rgba(0,0,0,0.3);
+  border:none;
+  color:#FFF;  
+ 
+}
+.b-off:hover{
+  cursor: pointer;
+  background-color:#5c9ed8;
+}
+.rede{
+  position:absolute;
+  left:20%;
+  
+  color:#FFF;
+  font-size:100px;
+}
+
+

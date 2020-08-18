@@ -13,10 +13,10 @@ export const SofhiaPiscandoSprite = props =>{
       width={640}
       height={482}
       fps={8}
-      scale={1}
+      scale={0.75}
       direction='vertical'
-      wrapAfter={10} 
-         
+      wrapAfter={10}
+      
       />
   )
 }
