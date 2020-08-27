@@ -1,0 +1,60 @@
+.container{
+  background-color: #5c9ed8;
+  display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-template-rows:1fr 1fr;
+      grid-template-areas:
+        "voltar desligar"
+        "meio meio"; 
+  height:100%;
+  width:100%;
+
+}
+
+.button-voltar{ 
+  display:flex;
+  justify-content:center;
+  align-items: center; 
+  grid-area:voltar;
+  background-color:#71ABDD;
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  border:none;
+  color:#FFF;
+  margin:5vh 5vw 5vh 5vw;
+}
+.button-voltar button{
+  background-color:transparent;
+  border:none;
+  color:#FFF;
+
+}
+.button-voltar:hover{
+  cursor: pointer;
+  background-color:#5c9ed8;
+}
+.button-desligar{  
+  grid-area:desligar;
+  background-color:#71ABDD;
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  border:none;
+  color:#FFF;
+  margin:5vh 5vw 5vh 5vw;
+}
+.button-desligar:hover{
+  cursor: pointer;
+  background-color:#5c9ed8;
+}
+.div-list{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+  grid-area:meio;
+}
+.ip-txt{
+  font-size:2rem;
+  color:#FFF;
+  
+}

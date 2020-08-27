@@ -1,14 +1,14 @@
 
 .olho1{  
   position:absolute;
-  left:8%;
-  top:30%;
+  left:10vw;
+  top:35vh;
   border-radius: 50%;
 }
 .olho2{  
   position:absolute;
-  left:54%;
-  top:30%;
+  left:50vw;
+  top:35vh;
   border-radius: 46%;
 }
 .sofy{
@@ -19,6 +19,13 @@
   width:80vw;
   position:relative;  
   
+}
+.titlePredict{
+  position:absolute;
+  z-index:5;
+  left:37vw;
+  top:15vh;
+  font-size:10vh;
 }
 .poweroff{
   position:absolute;
@@ -87,8 +94,8 @@
 }
 .online p {
   color:#FFF;
-  font-size:32px;
-  margin-left:30px;
+  font-size:2rem;
+  margin-left:5vh;
 }
 /*------------------------------------------------------*/
 
