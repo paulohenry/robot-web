@@ -188,10 +188,8 @@ return (
         {!loading? <>          
             <button className="details" onClick={()=>history.push('/menu')}>
               <FaCogs size={100}/>
-            </button>     
-          
-
-          <div className="online"><p>online</p></div>        
+            </button>
+        <div className="online"><p>online</p></div>        
         <div className="sofy">
           {camState===true &&  
           <>  
