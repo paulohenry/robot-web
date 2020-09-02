@@ -13,12 +13,12 @@ import axios from '../../Services/axios'
 import * as tf from'@tensorflow/tfjs';
 import * as mobilenetModule from'@tensorflow-models/mobilenet';
 import * as knnClassifier from'@tensorflow-models/knn-classifier/dist/knn-classifier';
-
+import {useHistory} from 'react-router-dom'
 import './style.css'
 
 let mobilenet=null;
 let classifier=null;
-
+let i = false
 let interval = null
 
 const constrains={
@@ -27,6 +27,8 @@ const constrains={
   facingMode:"user"    
 }
 function Interacao() { 
+
+  const history = useHistory()
   const [loading,setLoading] = useState(true)
   const [camState, setCamState]=useState(false)  
   const [falando, setFalando]=useState(false)
@@ -35,7 +37,10 @@ function Interacao() {
   const [datas, setDatas]=useState([])
   const [continu2, setContinu2]=useState(false)
   const [predictClass, setPredictClass]=useState(null)
-  recog.addEventListener('end', recog.start)
+  
+  recog.addEventListener('end', ()=>{
+     i=true
+  })
    
   recog.onresult = async(e)=>{ 
       let transcricaoAtual = e.resultIndex        
@@ -161,9 +166,8 @@ useEffect(()=>{
   useEffect(()=>{  
       loadTensors()
       loadDatas()
-      console.log(camRef)          
-      if(navigator.plataform!=='Linux armv7l')
-        {recog.start()}       
+      console.log(camRef)        
+        recog.start()   
        return ()=>{
         recog.abort()
        }
@@ -173,19 +177,19 @@ return (
     
     <div>
       <Offline className="offlineContainer">
-           <a href='/wifi'>             
-               <button className="b-off">
+           <>           
+               <button className="b-off" onClick={()=>history.push('/wifi')}>
                  <FaWifi size={200}/>
                 </button>
-            </a>
+            </>
           <p className="rede">conectar-se a uma rede</p>
       </Offline>
       <Online> <>
-        {!loading?<><a href='/menu'>             
-            <button className="details">
+        {!loading? <>          
+            <button className="details" onClick={()=>history.push('/menu')}>
               <FaCogs size={100}/>
-            </button>                    
-          </a> 
+            </button>     
+          
 
           <div className="online"><p>online</p></div>        
         <div className="sofy">
@@ -204,8 +208,14 @@ return (
                 className="olho2"
                 mirrored="true" 
                 videoConstraints={constrains}/> </>         
-           }              
-          <SofhiaPiscandoSprite falando={falando}/>          
+           } 
+            <div onClick={()=> {              
+              if(i){
+                recog.start()
+              }            
+              }}> 
+          <SofhiaPiscandoSprite falando={falando}/> 
+          </div>           
         </div></>:<Loading/>}</>
         </Online>
      </div>
