@@ -18,7 +18,7 @@ import './style.css'
 
 let mobilenet=null;
 let classifier=null;
-let i = false
+
 let interval = null
 
 const constrains={
@@ -37,10 +37,7 @@ function Interacao() {
   const [datas, setDatas]=useState([])
   const [continu2, setContinu2]=useState(false)
   const [predictClass, setPredictClass]=useState(null)
-  
-  recog.addEventListener('end', ()=>{
-     i=true
-  })
+  recog.addEventListener('end', recog.start)
    
   recog.onresult = async(e)=>{ 
       let transcricaoAtual = e.resultIndex        
@@ -166,8 +163,9 @@ useEffect(()=>{
   useEffect(()=>{  
       loadTensors()
       loadDatas()
-      console.log(camRef)        
-        recog.start()   
+      console.log(camRef)          
+      if(navigator.plataform!=='Linux armv7l')
+        {recog.start()}       
        return ()=>{
         recog.abort()
        }
@@ -177,19 +175,21 @@ return (
     
     <div>
       <Offline className="offlineContainer">
-           <>           
+                      
                <button className="b-off" onClick={()=>history.push('/wifi')}>
                  <FaWifi size={200}/>
                 </button>
-            </>
+           
           <p className="rede">conectar-se a uma rede</p>
       </Offline>
       <Online> <>
         {!loading? <>          
             <button className="details" onClick={()=>history.push('/menu')}>
               <FaCogs size={100}/>
-            </button>
-        <div className="online"><p>online</p></div>        
+            </button>                    
+          
+
+          <div className="online"><p>online</p></div>        
         <div className="sofy">
           {camState===true &&  
           <>  
@@ -206,14 +206,8 @@ return (
                 className="olho2"
                 mirrored="true" 
                 videoConstraints={constrains}/> </>         
-           } 
-            <div onClick={()=> {              
-              if(i){
-                recog.start()
-              }            
-              }}> 
-          <SofhiaPiscandoSprite falando={falando}/> 
-          </div>           
+           }              
+          <SofhiaPiscandoSprite falando={falando}/>          
         </div></>:<Loading/>}</>
         </Online>
      </div>
