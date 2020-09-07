@@ -6,9 +6,9 @@ https://github.com/paulohenry/robot-client
 this project must be run on raspberry Pi  to interprete trainning on the client-project
 
 <div align='center'>
-    <img src="./src/Assets/6Front.JPG" width="300" height="150"/>
-     <img src="./src/Assets/12Front.JPG" width="300" height="150"/>
-  <img src="./src/Assets/11Front.JPG" width="300" height="150"/>
+    <img src="./img/1.JPG" width="300" height="150"/>
+   <img src="./img/2.JPG" width="300" height="150"/>
+ 
   </div>
 
 ##` yarn`
