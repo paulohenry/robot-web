@@ -27,7 +27,7 @@ const constrains={
   facingMode:"user"    
 }
 function Interacao() { 
-
+  const [mic, setmic] = useState(false)
   const history = useHistory()
   const [loading,setLoading] = useState(true)
   const [camState, setCamState]=useState(false)  
@@ -37,7 +37,6 @@ function Interacao() {
   const [datas, setDatas]=useState([])
   const [continu2, setContinu2]=useState(false)
   const [predictClass, setPredictClass]=useState(null)
-  recog.addEventListener('end', recog.start)
    
   recog.onresult = async(e)=>{ 
       let transcricaoAtual = e.resultIndex        
@@ -164,12 +163,17 @@ useEffect(()=>{
       loadTensors()
       loadDatas()
       console.log(camRef)          
-      if(navigator.plataform!=='Linux armv7l')
-        {recog.start()}       
+      if(!recog.onstart){
+        recog.start()
+      }    
        return ()=>{
         recog.abort()
        }
   },[])
+
+recog.addEventListener('start',()=>setmic(true))
+recog.addEventListener('end',()=>setmic(false))
+ 
 
 return (
     
@@ -186,10 +190,10 @@ return (
         {!loading? <>          
             <button className="details" onClick={()=>history.push('/menu')}>
               <FaCogs size={100}/>
-            </button>                    
+            </button>               
           
 
-          <div className="online"><p>online</p></div>        
+          <div className="online"><div></div>{mic?<p>mic ativo</p>:<p>clique p/ ativar mic</p>}</div>        
         <div className="sofy">
           {camState===true &&  
           <>  
@@ -207,7 +211,13 @@ return (
                 mirrored="true" 
                 videoConstraints={constrains}/> </>         
            }              
-          <SofhiaPiscandoSprite falando={falando}/>          
+           <div onClick={()=>{            
+             if(!mic){
+               recog.start()
+             }           
+           }}>
+            <SofhiaPiscandoSprite falando={falando}/>   
+           </div>
         </div></>:<Loading/>}</>
         </Online>
      </div>

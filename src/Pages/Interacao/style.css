@@ -56,9 +56,8 @@
 }
 .details{
   position:absolute;
-  left:88.5%;
-  top:0;
   z-index:999;
+  margin:2vh 0 0 2vw  ;
   background-color:#71ABDD;
   padding:2%;
   border-radius: 6px;
@@ -87,11 +86,13 @@
   z-index:1;
   position:absolute;
   top:93%;
-  left:2%;
-  height: 30px;
-  width:30px;
+  left:2%;  
+}
+.online div{
   border-radius: 50%;
   background-color:green;
+  height: 30px;
+  width:30px;
 }
 .online p {
   color:#FFF;

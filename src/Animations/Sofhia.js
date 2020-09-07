@@ -7,32 +7,8 @@ import spriteFalando from './animation/spritesheet10.png'
 
 export const SofhiaPiscandoSprite = props =>{
   return(
-    <ContainerCorujaMae>
-    {navigator.plataform==='Linux armv7l'?(
-      <ContainerCorujaMob>{
-      props.falando?
-          (<SpriteAnimator  
-              id="test-id"            
-              sprite={sprite}
-              width={640}
-              height={482}
-              fps={10}
-              scale={2}
-              direction='vertical'
-              wrapAfter={10}      
-              />):
-          ( <SpriteAnimator
-            id="test-id"
-            sprite={sprite}
-            width={640}
-            height={482}
-            fps={10}
-            scale={2}
-            direction='vertical'
-            wrapAfter={10}    
-              />)
-            }
-      </ContainerCorujaMob>):(<ContainerCoruja>
+    
+    <ContainerCoruja>
           {props.falando?
              (<SpriteAnimator
                   id="test-id"
@@ -55,11 +31,8 @@ export const SofhiaPiscandoSprite = props =>{
                   wrapAfter={10}      
                   />)
                 }
-                </ContainerCoruja>
-                )
-          
-      }
-      </ContainerCorujaMae>
+   </ContainerCoruja>                  
+      
   )
 }
 
