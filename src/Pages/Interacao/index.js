@@ -59,7 +59,8 @@ function Interacao() {
       
       utterance.text = response.data.transcricao_robot 
       recog.abort() 
-      synth.speak(utterance)      
+      synth.speak(utterance)   
+
       if(synth.speaking)
       { 
         setFalando(true)
@@ -204,12 +205,7 @@ return (
                 className="olho1"
                 mirrored="true" 
                 videoConstraints={constrains}/>
-            <Webcam 
-                screenshotFormat = "image/jpeg"
-                ref={camRef}
-                className="olho2"
-                mirrored="true" 
-                videoConstraints={constrains}/> </>         
+            </>         
            }              
            <div onClick={()=>{            
              if(!mic){

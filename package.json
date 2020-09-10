@@ -31,6 +31,7 @@
     "react-webcam": "^5.2.0",
     "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.1",
+    "text-to-speech-js": "^1.1.10",
     "virtual-keyboard": "^1.30.1"
   },
   "scripts": {

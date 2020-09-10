@@ -13,7 +13,8 @@ export const Container = styled.div`
    position:relative;
    align-items:center;
    padding-top:10vh;
-
+   
+   overflow-y:scroll;
    & > p{
       color:#FFF;
     font-weight:bold;
@@ -30,10 +31,7 @@ export const Container = styled.div`
     width: 100vw;  
   
     
-    &::-webkit-scrollbar{
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
-  }
+   
 `;
 
 export const Voltar = styled(Link)`

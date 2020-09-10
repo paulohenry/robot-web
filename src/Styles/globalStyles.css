@@ -10,13 +10,10 @@
     background-color:#71ABDD;
     min-height:100%;
     -webkit-font-smoothing: antialiased !important;
-    overflow-y: scroll;
+    
     overflow-x:hidden;
     height:100vh;  
     width: 100vw;  
   }
-  ::-webkit-scrollbar{
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
-  }
+  
 

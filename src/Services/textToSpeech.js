@@ -1,5 +1,14 @@
-export const synth =  window.speechSynthesis
-export const utterance = new window.SpeechSynthesisUtterance();
+const synth =  window.speechSynthesis
+const utterance = new window.SpeechSynthesisUtterance();
+utterance.lang = 'pt-BR';
+
+export {synth,utterance}
+
+
+
+
+
+
 
 
 

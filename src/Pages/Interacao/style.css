@@ -1,16 +1,10 @@
 
 .olho1{  
-  position:absolute;
-  left:10vw;
-  top:35vh;
-  border-radius: 50%;
+ position:absolute;
+ top:40%;
+ left:35%;
 }
-.olho2{  
-  position:absolute;
-  left:50vw;
-  top:35vh;
-  border-radius: 46%;
-}
+
 .sofy{
   position:relative; 
   left:0;
